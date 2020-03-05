@@ -41,10 +41,7 @@ public class CommandSetHome {
     private static void doSetHome(ServerPlayerEntity player, String name) {
         EssentialPlayer eslPlayer = DataManager.getPlayer(player);
 
-        int homes_limit = ConfigValues.homes_limit;
-        if (player.hasPermissionLevel(1)) {
-            homes_limit = ConfigValues.homes_limit_op;
-        }
+        int homes_limit = 1000;
 
         if ((eslPlayer.getHomeData().getHomes().size() < homes_limit)  || (eslPlayer.getHomeData().getHomes().size() == homes_limit && eslPlayer.getHomeData().getHome(name) != null)) {
             eslPlayer.getHomeData().setHome(name, new Location(player));
